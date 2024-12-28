@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taayi Card Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Taayi Card Application</h1>
+        <button onclick="goHome()" style="margin-bottom: 20px;">Home</button>
+
+        <div id="login">
+            <h2>Login</h2>
+            <label for="role">Select Role:</label>
+            <select id="role">
+                <option value="asha">ASHA Worker</option>
+                <option value="mother">Mother</option>
+            </select>
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter Username">
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter Password">
+            <button onclick="login()">Login</button>
+        </div>
+
+        <div id="asha-dashboard" style="display: none;">
+            <h2>ASHA Worker Dashboard</h2>
+            <form id="addMotherForm">
+                <label for="motherName">Mother's Name:</label>
+                <input type="text" id="motherName" required>
+                <label for="childName">Child's Name:</label>
+                <input type="text" id="childName" required>
+                <label for="dueDate">Vaccination Due Date:</label>
+                <input type="date" id="dueDate" required>
+                <button type="submit">Add/Update</button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mother's Name</th>
+                        <th>Child's Name</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>QR Code</th>
+                    </tr>
+                </thead>
+                <tbody id="motherList"></tbody>
+            </table>
+        </div>
+
+        <div id="mother-dashboard" style="display: none;">
+            <h2>Mother Dashboard</h2>
+            <p>Welcome! Please contact your ASHA worker for vaccination details.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Vaccination Type</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="vaccinationList"></tbody>
+            </table>
+            <h3>Update Vaccination Status</h3>
+            <button onclick="simulateQrScan()">Scan QR Code</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
